@@ -44,17 +44,15 @@
     function createShakeHead() {
       let shakeHead = document.createElement('img');
       shakeHead.className = 'shake-head';
-      shakeHead.src = '//imgur.com/a/DvxwV6N';
+      shakeHead.src = 'https://i.imgur.com/wS5lpd7.mp4'; // Vervang met de directe URL van je GIF
       shakeHead.style.left = (window.innerWidth / 2 - 50) + 'px';
       shakeHead.style.top = (window.innerHeight / 2 - 50) + 'px';
       document.body.appendChild(shakeHead);
     }
 
-    function checkAnswers() {
+    function checkAnswer1() {
       var answer1 = document.getElementById("answer1").value.toLowerCase();
-      var answer2 = document.getElementById("answer2").value.toLowerCase();
       var feedback1 = document.getElementById("feedback1");
-      var feedback2 = document.getElementById("feedback2");
 
       if (answer1 === "juiste antwoord 1") {
         feedback1.innerHTML = "Correct! Goed gedaan.";
@@ -63,6 +61,11 @@
         feedback1.innerHTML = "Helaas, dat is niet correct. Probeer het opnieuw.";
         createShakeHead();
       }
+    }
+
+    function checkAnswer2() {
+      var answer2 = document.getElementById("answer2").value.toLowerCase();
+      var feedback2 = document.getElementById("feedback2");
 
       if (answer2 === "juiste antwoord 2") {
         feedback2.innerHTML = "Correct! Goed gedaan.";
@@ -79,13 +82,13 @@
   <form>
     <label for="answer1">Raadsel 1: Wat is zwart en wit en wordt gelezen over de hele wereld?</label><br>
     <input type="text" id="answer1" name="answer1"><br>
-    <span id="feedback1"></span><br><br>
+    <span id="feedback1"></span><br>
+    <input type="button" value="Controleer antwoord" onclick="checkAnswer1()"><br><br>
 
     <label for="answer2">Raadsel 2: Wat heeft een hart dat nooit klopt?</label><br>
     <input type="text" id="answer2" name="answer2"><br>
-    <span id="feedback2"></span><br><br>
-
-    <input type="button" value="Controleer antwoorden" onclick="checkAnswers()">
+    <span id="feedback2"></span><br>
+    <input type="button" value="Controleer antwoord" onclick="checkAnswer2()"><br><br>
   </form>
 </body>
 </html>
