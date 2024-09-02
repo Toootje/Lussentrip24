@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Raadsel Formulier</title>
+  <style>
+    .confetti {
+      position: absolute;
+      width: 50px; /* Pas de grootte van de hoofdjes aan */
+      height: 50px;
+      background-size: cover;
+      animation: fall 2s infinite;
+    }
+
+    .shake-head {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      animation: shake 0.5s;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(500px); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      50% { transform: translateX(10px); }
+      75% { transform: translateX(-10px); }
+    }
+  </style>
+  <script>
+    function createConfetti() {
+      for (let i = 0; i < 100; i++) {
+        let confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.backgroundImage = 'url(https://imgur.com/a/1hF13ns)'; // Vervang met de URL van je hoofdje
+        document.body.appendChild(confetti);
+      }
+    }
+
+    function createShakeHead() {
+      let shakeHead = document.createElement('img');
+      shakeHead.className = 'shake-head';
+      shakeHead.src = 'https://imgur.com/a/DvxwV6N';
+      shakeHead.style.left = (window.innerWidth / 2 - 50) + 'px';
+      shakeHead.style.top = (window.innerHeight / 2 - 50) + 'px';
+      document.body.appendChild(shakeHead);
+    }
+
+    function checkAnswers() {
+      var answer1 = document.getElementById("answer1").value.toLowerCase();
+      var answer2 = document.getElementById("answer2").value.toLowerCase();
+      var feedback1 = document.getElementById("feedback1");
+      var feedback2 = document.getElementById("feedback2");
+
+      if (answer1 === "juiste antwoord 1") {
+        feedback1.innerHTML = "Correct! Goed gedaan.";
+        createConfetti();
+      } else {
+        feedback1.innerHTML = "Helaas, dat is niet correct. Probeer het opnieuw.";
+        createShakeHead();
+      }
+
+      if (answer2 === "juiste antwoord 2") {
+        feedback2.innerHTML = "Correct! Goed gedaan.";
+        createConfetti();
+      } else {
+        feedback2.innerHTML = "Helaas, dat is niet correct. Probeer het opnieuw.";
+        createShakeHead();
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Raadsel Formulier</h1>
+  <form>
+    <label for="answer1">Raadsel 1: Wat is zwart en wit en wordt gelezen over de hele wereld?</label><br>
+    <input type="text" id="answer1" name="answer1"><br>
+    <span id="feedback1"></span><br><br>
+
+    <label for="answer2">Raadsel 2: Wat heeft een hart dat nooit klopt?</label><br>
+    <input type="text" id="answer2" name="answer2"><br>
+    <span id="feedback2"></span><br><br>
+
+    <input type="button" value="Controleer antwoorden" onclick="checkAnswers()">
+  </form>
+</body>
+</html>
