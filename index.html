@@ -5,8 +5,8 @@
   <style>
     .confetti {
       position: absolute;
-      width: 50px; /* Pas de grootte van de hoofdjes aan */
-      height: 50px;
+      width: 300px; /* Pas de grootte van de hoofdjes aan */
+      height: 300px;
       background-size: cover;
       animation: fall 2s forwards, spin 2s forwards;
     }
@@ -37,7 +37,7 @@
   </style>
   <script>
     function createConfetti() {
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 50; i++) {
         let confetti = document.createElement('div');
         confetti.className = 'confetti';
         confetti.style.left = Math.random() * window.innerWidth + 'px';
