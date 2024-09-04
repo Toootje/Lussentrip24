@@ -1,116 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Raadsel Formulier</title>
-  <style>
-    .confetti {
-      position: absolute;
-      width: 300px; /* Pas de grootte van de hoofdjes aan */
-      height: 300px;
-      background-size: cover;
-      animation: fall 2s forwards, spin 2s forwards;
-    }
-
-    .shake-head {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      animation: shake 0.5s;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(500px) rotate(360deg); }
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-10px); }
-      50% { transform: translateX(10px); }
-      75% { transform: translateX(-10px); }
-    }
-  </style>
-  <script>
-    function createConfetti() {
-      for (let i = 0; i < 5; i++) {
-        let confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.left = Math.random() * window.innerWidth + 'px';
-        confetti.style.backgroundImage = 'url(https://i.ibb.co/B3CgScD/Mhf.jpg)'; // Vervang met de URL van je hoofdje
-        document.body.appendChild(confetti);
-      }
-    }
-
-    function createShakeHead() {
-      let shakeHead = document.createElement('img');
-      shakeHead.className = 'shake-head';
-      shakeHead.src = 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXNtam5vYXpjd2l1dWl6bTBlNWN4OTlvYWgzbG40N2MxcGxvOGRkMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FCiml1AqJdqLjrSKI3/giphy.webp'; // Vervang met de directe URL van je GIF
-      shakeHead.style.left = (window.innerWidth / 2 - 50) + 'px';
-      shakeHead.style.top = (window.innerHeight / 2 - 50) + 'px';
-      document.body.appendChild(shakeHead);
-    }
-
-    function checkAnswer(id, correctAnswer) {
-      var answer = document.getElementById("answer" + id).value.toLowerCase();
-      var feedback = document.getElementById("feedback" + id);
-
-      if (answer === correctAnswer.toLowerCase()) {
-        feedback.innerHTML = "Correct! Goed gedaan.";
-        createConfetti();
-      } else {
-        feedback.innerHTML = "Helaas, dat is niet correct. Probeer het opnieuw.";
-        createShakeHead();
-      }
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
 </head>
 <body>
-  <h1>Raadsel Formulier</h1>
-  <form>
-    <label for="answer1">Raadsel 1: Wat is zwart en wit en wordt gelezen over de hele wereld?</label><br>
-    <input type="text" id="answer1" name="answer1"><br>
-    <span id="feedback1"></span><br>
-    <input type="button" value="Controleer antwoord" onclick="checkAnswer(1, 'juiste antwoord 1')"><br><br>
+    <div id="feedback"></div>
+    <script>
+        // Simuleer het ontvangen van feedback van Zapier
+        const feedback = "correct"; // Dit zou dynamisch moeten zijn op basis van de ontvangen feedback
 
-    <label for="answer2">Raadsel 2: Wat heeft een hart dat nooit klopt?</label><br>
-    <input type="text" id="answer2" name="answer2"><br>
-    <span id="feedback2"></span><br>
-    <input type="button" value="Controleer antwoord" onclick="checkAnswer(2, 'juiste antwoord 2')"><br><br>
-
-    <label for="answer3">Raadsel 3: Wat heeft een sleutel maar kan niet openen?</label><br>
-    <input type="text" id="answer3" name="answer3"><br>
-    <span id="feedback3"></span><br>
-    <input type="button" value="Controleer antwoord" onclick="checkAnswer(3, 'juiste antwoord 3')"><br><br>
-
-    <label for="answer4">Raadsel 4: Wat gaat omhoog maar komt nooit naar beneden?</label><br>
-    <input type="text" id="answer4" name="answer4"><br>
-    <span id="feedback4"></span><br>
-    <input type="button" value="Controleer antwoord" onclick="checkAnswer(4, 'juiste antwoord 4')"><br><br>
-
-    <label for="answer5">Raadsel 5: Wat heeft een ring maar geen vinger?</label><br>
-    <input type="text" id="answer5" name="answer5"><br>
-    <span id="feedback5"></span><br>
-    <input type="button" value="Controleer antwoord" onclick="checkAnswer(5, 'juiste antwoord 5')"><br><br>
-
-    <label for="answer6">Raadsel 6: Wat heeft een nek maar geen hoofd?</label><br>
-    <input type="text" id="answer6" name="answer6"><br>
-    <span id="feedback6"></span><br>
-    <input type="button" value="Controleer antwoord" onclick="checkAnswer(6, 'juiste antwoord 6')"><br><br>
-
-    <label for="answer7">Raadsel 7: Wat heeft een bed maar slaapt nooit?</label><br>
-    <input type="text" id="answer7" name="answer7"><br>
-    <span id="feedback7"></span><br>
-    <input type="button" value="Controleer antwoord" onclick="checkAnswer(7, 'juiste antwoord 7')"><br><br>
-
-    <label for="answer8">Raadsel 8: Wat heeft oren maar hoort niet?</label><br>
-    <input type="text" id="answer8" name="answer8"><br>
-    <span id="feedback8"></span><br>
-    <input type="button" value="Controleer antwoord" onclick="checkAnswer(8, 'juiste antwoord 8')"><br><br>
-  </form>
+        if (feedback === "correct") {
+            document.getElementById('feedback').innerHTML = '<img src="https://i.ibb.co/B3CgScD/Mhf.jpg" alt="Correct antwoord">';
+        } else {
+            document.getElementById('feedback').innerHTML = '<img src="https://i.giphy.com/FCiml1AqJdqLjrSKI3.webp" alt="Fout antwoord">';
+        }
+    </script>
 </body>
 </html>
