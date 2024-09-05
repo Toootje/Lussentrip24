@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback</title>
+    <title>Antwoorden</title>
+    <style>
+        body {
+            background-image: url('https://www.example.com/space-background.jpg'); /* Vervang deze URL door een werkende URL van een ruimte-achtergrond */
+            background-size: cover;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .answer {
+            font-size: 3em;
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div id="feedback"></div>
-    <script>
-        // Simuleer het ontvangen van feedback van Zapier
-        const feedback = "correct"; // Dit zou dynamisch moeten zijn op basis van de ontvangen feedback
-
-        if (feedback === "correct") {
-            document.getElementById('feedback').innerHTML = '<img src="https://i.ibb.co/B3CgScD/Mhf.jpg" alt="Correct antwoord">';
-        } else {
-            document.getElementById('feedback').innerHTML = '<img src="https://i.giphy.com/FCiml1AqJdqLjrSKI3.webp" alt="Fout antwoord">';
-        }
-    </script>
+    <div class="answer">Antwoord 1</div>
+    <div class="answer">Antwoord 2</div>
+    <div class="answer">Antwoord 3</div>
 </body>
 </html>
